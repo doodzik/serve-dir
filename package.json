@@ -1,0 +1,54 @@
+{
+  "name": "serve-dir",
+  "version": "0.1.0",
+  "description": "serve a directory",
+  "main": "index.js",
+  "bin": {
+    "serve-dir": "./bin/serve-dir.js"
+  },
+  "scripts": {
+    "test": "mocha",
+    "precommit": "npm test && npm run lint && depcheck . --ignores husky,depcheck,eslint-config",
+    "lint": "eslint . --fix --ignore-path .gitignore -c ./node_modules/eslint-config/.eslintrc.js ",
+    "lint-prod": "eslint . --fix --ignore-path .gitignore -c ./node_modules/eslint-config/.eslintrc.production.js ",
+    "coverage": "nyc check-coverage",
+    "coveralls": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doodzik/serve-dir.git"
+  },
+  "keywords": [
+    "static file server"
+  ],
+  "author": "Frederik Dudzik",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doodzik/serve-dir/issues"
+  },
+  "devDependencies": {
+    "fs-extra": "^4.0.2",
+    "coveralls": "^3.0.0",
+    "depcheck": "^0.6.8",
+    "eslint": "^4.9.0",
+    "eslint-config": "github:doodzik/eslint-config",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "nyc": "^11.2.1"
+  },
+  "dependencies": {
+    "listen-random-port": "^1.0.0",
+    "minimist": "^1.2.0",
+    "node-fetch": "^1.7.3",
+    "node-static": "^0.7.10",
+    "server-destroy": "^1.0.1"
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 44,
+    "statements": 45,
+    "functions": 38,
+    "branches": 34
+  }
+}
